@@ -32,7 +32,7 @@ jobs:
           username: ${{ secrets.AZURE_USER }}
           password: ${{ secrets.AZURE_PASSWORD }}
           script: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/pasteapp:latest
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/pasteapp:latest
             docker stop pasteapp-container || true
             docker rm pasteapp-container || true
-            docker run -d -p 8080:80 --name pasteapp-container ${{ secrets.DOCKER_USERNAME }}/pasteapp:latest
+            docker run -d -p 8080:80 --name pasteapp-container ${{ secrets.DOCKERHUB_USERNAME }}/pasteapp:latest
